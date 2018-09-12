@@ -10,7 +10,7 @@ public class AccountServiceImpl implements AccountService {
 
     @Override
     public String loginByPhone(String accountName, String password) {
-        return accountName + " " + password;
+        return accountName + " this is a test for dubbo " + password;
     }
 
 }
