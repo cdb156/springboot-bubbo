@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="club.springboot.dubbo.dubboserver.dao.mapper.UserMapper">
+    <resultMap id="BaseResultMap" type="club.springboot.dubbo.po.User">
+        <id column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--跨表查询-->
+    <resultMap id="userInfoAndIDInfoMap" type="club.springboot.dubbo.po.User">
+        <id column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="user_name" property="userName" jdbcType="VARCHAR"/>
+        <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <collection property="userIdCart" ofType="club.springboot.dubbo.po.UserIdCart">
+            <id column="user_id" property="userId" jdbcType="INTEGER"/>
+            <result column="user_id_no" property="userIdNo" jdbcType="VARCHAR"/>
+            <result column="user_id_no_token" property="userIdNoToken" jdbcType="VARCHAR"/>
+        </collection>
+    </resultMap>
+
+    <!-- 可以直接引用的属性值 -->
+    <sql id="Base_Column_List">
+      user_id, user_name, password, phone
+    </sql>
+
+    <select id="getById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+    <select id="selectUserAndUserID" parameterType="java.lang.Integer" resultMap="userInfoAndIDInfoMap">
+        select t.user_id, t.user_name, t.password, t.phone, i.user_id, i.user_id_no, i.user_id_no_token from t_user as t left join t_user_id_info as i on t.user_id = i.user_id where t.user_id = #{userId,jdbcType=INTEGER}
+    </select>
+
+</mapper>

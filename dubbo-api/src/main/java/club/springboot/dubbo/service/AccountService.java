@@ -1,8 +1,12 @@
 package club.springboot.dubbo.service;
 
+import club.springboot.dubbo.po.User;
+
 public interface AccountService {
 
-    String loginByPhone(String accountName, String password);
+    User loginByPhone(String phone);
 
+    User loginByUserName(String accountName);
 
+    User selectUserAndUserID(Integer userId);
 }
