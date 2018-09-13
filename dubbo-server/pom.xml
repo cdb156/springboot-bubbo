@@ -61,6 +61,11 @@
             <artifactId>dubbo-api</artifactId>
             <version>0.0.1</version>
         </dependency>
+        <dependency>
+            <groupId>club.springboot.dubbo</groupId>
+            <artifactId>dubbo-util</artifactId>
+            <version>0.0.1</version>
+        </dependency>
     </dependencies>
 
     <build>

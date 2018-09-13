@@ -9,4 +9,6 @@ public interface AccountService {
     User loginByUserName(String accountName);
 
     User selectUserAndUserID(Integer userId);
+
+    Integer saveUser(User user);
 }

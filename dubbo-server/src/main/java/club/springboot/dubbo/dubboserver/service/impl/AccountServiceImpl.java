@@ -30,4 +30,9 @@ public class AccountServiceImpl implements AccountService {
         return userMapper.selectUserAndUserID(userId);
     }
 
+    @Override
+    public Integer saveUser(User user) {
+        return userMapper.saveUser(user);
+    }
+
 }

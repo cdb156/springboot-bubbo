@@ -4,10 +4,7 @@ import club.springboot.dubbo.po.User;
 import club.springboot.dubbo.service.AccountService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/index")
@@ -30,6 +27,12 @@ public class IndexController {
     @ResponseBody
     public User selectUserAndUserID(@PathVariable("userId")Integer userId) {
         return accountService.selectUserAndUserID(userId);
+    }
+
+    @PostMapping("/user")
+    @ResponseBody
+    public Integer addUser(User user) {
+        return accountService.saveUser(user);
     }
 
 }

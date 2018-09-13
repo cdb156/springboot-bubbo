@@ -28,4 +28,7 @@ public interface UserMapper {
     })
     @Select("select t.user_id, t.user_name, t.password, t.phone, i.user_id as iid, i.user_id_no, i.user_id_no_token from t_user as t left join t_user_id_info as i on t.user_id = i.user_id where t.user_id = #{userId}")
     public User selectUserAndUserID(Integer userId);
+
+    @Insert("insert into t_user(user_name, password, phone) values (#{user.userName}, #{user.password}, #{user.phone})")
+    public Integer saveUser(@Param("user")User user);
 }
