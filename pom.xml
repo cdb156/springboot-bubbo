@@ -17,6 +17,7 @@
         <module>dubbo-api</module>
         <module>dubbo-bean</module>
         <module>dubbo-util</module>
+        <module>dubbo-activemq-server</module>
     </modules>
 
     <parent>
@@ -42,6 +43,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+
+        <!--添加 mq 支持-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-activemq</artifactId>
         </dependency>
 
         <!--dubbo + zookeeper-->

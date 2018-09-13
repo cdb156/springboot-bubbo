@@ -11,4 +11,6 @@ public interface AccountService {
     User selectUserAndUserID(Integer userId);
 
     Integer saveUser(User user);
+
+    String sendMessage();
 }

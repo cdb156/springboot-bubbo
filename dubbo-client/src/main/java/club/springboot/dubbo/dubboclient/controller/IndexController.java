@@ -35,4 +35,10 @@ public class IndexController {
         return accountService.saveUser(user);
     }
 
+    @GetMapping("/testActiveMq")
+    @ResponseBody
+    public String testActiveMq() {
+        return accountService.sendMessage();
+    }
+
 }
