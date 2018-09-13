@@ -14,10 +14,12 @@
     <modules>
         <module>dubbo-client</module>
         <module>dubbo-server</module>
+        <module>dubbo-server2</module>
         <module>dubbo-api</module>
         <module>dubbo-bean</module>
         <module>dubbo-util</module>
         <module>dubbo-activemq-server</module>
+        <module>dubbo-activemq-server2</module>
     </modules>
 
     <parent>

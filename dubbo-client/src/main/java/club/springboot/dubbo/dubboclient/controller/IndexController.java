@@ -35,10 +35,17 @@ public class IndexController {
         return accountService.saveUser(user);
     }
 
-    @GetMapping("/testActiveMq")
+    @GetMapping("/testActiveMqQueue")
     @ResponseBody
-    public String testActiveMq() {
+    public String testActiveMqQueue() {
         return accountService.sendMessage();
+    }
+
+
+    @GetMapping("/testActiveMqTopic")
+    @ResponseBody
+    public String testActiveMqTopic() {
+        return accountService.sendMessageTopic();
     }
 
 }

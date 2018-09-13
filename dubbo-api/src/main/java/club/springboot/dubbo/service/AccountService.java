@@ -13,4 +13,6 @@ public interface AccountService {
     Integer saveUser(User user);
 
     String sendMessage();
+
+    String sendMessageTopic();
 }
