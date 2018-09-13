@@ -10,6 +10,7 @@
 .springBeans
 .sts4-cache
 target
+out
 
 ### IntelliJ IDEA ###
 .idea
