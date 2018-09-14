@@ -2,7 +2,7 @@ package club.springboot.dubbo.service;
 
 import club.springboot.dubbo.po.User;
 
-public interface AccountService {
+public interface DubboAccountService {
 
     User loginByPhone(String phone);
 

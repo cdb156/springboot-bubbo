@@ -1,7 +1,7 @@
 package club.springboot.dubbo.dubboclient.controller;
 
 import club.springboot.dubbo.po.User;
-import club.springboot.dubbo.service.AccountService;
+import club.springboot.dubbo.service.DubboAccountService;
 import com.alibaba.dubbo.config.annotation.Reference;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.*;
 public class IndexController {
 
     @Reference(version = "1.0.0")
-    private AccountService accountService;
+    private DubboAccountService dubboAccountService;
 
     @GetMapping("/user/{accountName}")
     @ResponseBody
     public User index(@PathVariable("accountName")String accountName) {
-        User user = accountService.loginByPhone(accountName);
+        User user = dubboAccountService.loginByPhone(accountName);
         if (user == null) {
-            user = accountService.loginByUserName(accountName);
+            user = dubboAccountService.loginByUserName(accountName);
         }
         return user;
     }
@@ -26,32 +26,32 @@ public class IndexController {
     @GetMapping("/user/{userId}/all")
     @ResponseBody
     public User selectUserAndUserID(@PathVariable("userId")Integer userId) {
-        return accountService.selectUserAndUserID(userId);
+        return dubboAccountService.selectUserAndUserID(userId);
     }
 
     @PostMapping("/user")
     @ResponseBody
     public Integer addUser(User user) {
-        return accountService.saveUser(user);
+        return dubboAccountService.saveUser(user);
     }
 
     @GetMapping("/testActiveMqQueue")
     @ResponseBody
     public String testActiveMqQueue() {
-        return accountService.sendMessage();
+        return dubboAccountService.sendMessage();
     }
 
 
     @GetMapping("/testActiveMqTopic")
     @ResponseBody
     public String testActiveMqTopic() {
-        return accountService.sendMessageTopic();
+        return dubboAccountService.sendMessageTopic();
     }
 
     @GetMapping("/testActivMqObject/{userId}")
     @ResponseBody
     public String testActivMqObject(@PathVariable("userId") Integer userId) {
-        return accountService.sendObjectQueue(userId);
+        return dubboAccountService.sendObjectQueue(userId);
     }
 
 }
