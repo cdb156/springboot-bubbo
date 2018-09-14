@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2018/09/14
  */
 @Service
-@Transactional
+@Transactional(rollbackFor = Exception.class)
 public class AccountServiceImpl implements AccountService {
 
     private Logger logger = LoggerFactory.getLogger(this.getClass());
