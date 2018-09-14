@@ -21,6 +21,13 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
 
+  <dependencies>
+    <dependency>
+      <groupId>club.springboot.dubbo</groupId>
+      <artifactId>dubbo-bean</artifactId>
+      <version>0.0.1</version>
+    </dependency>
+  </dependencies>
 
 
 </project>

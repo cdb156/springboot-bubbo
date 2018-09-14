@@ -8,6 +8,8 @@ import java.io.Serializable;
  */
 public class UserIdCart implements Serializable {
 
+    private static final long serialVersionUID = 4601587394279214522L;
+
     private Long userId;
 
     private String userIdNo;

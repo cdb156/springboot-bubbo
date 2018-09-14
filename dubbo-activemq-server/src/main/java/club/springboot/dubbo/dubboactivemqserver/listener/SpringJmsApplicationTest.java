@@ -1,5 +1,6 @@
 package club.springboot.dubbo.dubboactivemqserver.listener;
 
+import club.springboot.dubbo.dto.activemq.MessageModel;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.jms.annotation.JmsListener;
@@ -25,6 +26,10 @@ public class SpringJmsApplicationTest {
         logger.info("test-sendTopicMessage 接受消息: - > " + test);
     }
 
+    @JmsListener(destination = "test-sendObject")
+    public void receiceObject(MessageModel messageModel) {
+        logger.info("test-sendObject 接受消息: - > " + messageModel);
+    }
 
 
 }

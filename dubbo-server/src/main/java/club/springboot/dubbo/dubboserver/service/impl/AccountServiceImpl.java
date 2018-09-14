@@ -1,5 +1,6 @@
 package club.springboot.dubbo.dubboserver.service.impl;
 
+import club.springboot.dubbo.dto.activemq.MessageModel;
 import club.springboot.dubbo.dubboserver.dao.mapper.UserMapper;
 import club.springboot.dubbo.po.User;
 import club.springboot.dubbo.service.AccountService;
@@ -65,4 +66,11 @@ public class AccountServiceImpl implements AccountService {
         return s;
     }
 
+    @Override
+    public String sendObjectQueue(Integer userId) {
+        User user = userMapper.getById(userId);
+        logger.info("server 1 开始处理消息, 准备处理对象 : {}", user);
+        jmsMessagingTemplate.convertAndSend(new ActiveMQQueue("test-sendObject"), new MessageModel<User>("this is a test for object", user));
+        return String.format("server 1 开始处理消息, 准备处理对象 : %s", user != null ? user : "null");
+    }
 }

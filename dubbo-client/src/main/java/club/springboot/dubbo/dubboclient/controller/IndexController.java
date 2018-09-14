@@ -48,4 +48,10 @@ public class IndexController {
         return accountService.sendMessageTopic();
     }
 
+    @GetMapping("/testActivMqObject/{userId}")
+    @ResponseBody
+    public String testActivMqObject(@PathVariable("userId") Integer userId) {
+        return accountService.sendObjectQueue(userId);
+    }
+
 }

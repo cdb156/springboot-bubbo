@@ -15,4 +15,6 @@ public interface AccountService {
     String sendMessage();
 
     String sendMessageTopic();
+
+    String sendObjectQueue(Integer userId);
 }

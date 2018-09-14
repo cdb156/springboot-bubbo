@@ -64,4 +64,9 @@ public class AccountServiceImpl implements AccountService {
         return s;
     }
 
+    @Override
+    public String sendObjectQueue(Integer userId) {
+        return null;
+    }
+
 }
